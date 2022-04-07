@@ -1,0 +1,426 @@
+*{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.pic-up{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 2.375rem;
+    max-height: 37rem;
+}
+
+.slides-up{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: -webkit-fill-available;
+}
+
+.recruit{
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    padding: 0;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.recruit-content{
+    margin-top: 16rem;
+    margin-bottom: 4rem;
+}
+
+.recruit h1{
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+}
+
+.recruit p{
+    font-size: 5.8rem;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.recruit a img{
+    width: 40%;
+}
+
+.recruit a {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.recruit-2{
+    background-image: url(https://sun-asterisk.com/wp-content/uploads/2020/02/top-mirai-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.recruit-inner{
+
+}
+
+.recruit-inner h2{ 
+    font-size: 3.75rem;
+    color: #fff;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    line-height: 2;
+    padding-top: 4rem;
+}
+
+.recruit-inner p{
+    white-space: pre-line;
+    text-align: center;
+    color: #fff;
+    line-height: 2;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 0;
+}
+
+.content-up{
+    position: relative;
+}
+
+.content-up::after{
+    content: "";
+    position: absolute;
+    right: -80%;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: rgba(0,0,0,0.20);
+    transform: skew(-30deg, 0);
+    top: 0;
+}
+
+.vision{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: #915858;
+    height: 37.5rem;
+    justify-content: center;
+    background: #fff;
+    padding: 0 1rem;
+}
+
+.scroll-show{
+    line-height: 1;
+    margin-bottom: 1.875rem
+}
+
+.scroll-show p{
+    font-size: 2.375rem;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 0;
+}
+
+.scroll-show h3{
+    font-size: 2.5rem;
+    font-style: italic;
+}
+
+.slogan p{
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-vision{
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    background-color: #CA7C83;
+    position: relative;
+}
+
+.btn-vision span{
+    margin: 0.8rem 6rem;
+    line-height: 3rem;
+    color: #fff;
+}
+
+.btn-vision{
+    position: relative;
+}
+
+.btn-vision::after{
+    mix-blend-mode: multiply;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    right: 0;
+    border-bottom: 3rem solid #998675c7;
+    border-left: 0.8rem solid transparent;
+    border-right: 0px solid transparent;
+    transition: 0.4s;
+}
+
+.btn-vision:hover:after{
+    width: 100%;
+    border-left: 0 solid transparent;
+}
+
+.vision-box{
+    position: relative;
+}
+
+.vision::after{
+    content: "";
+    position: absolute;
+    left: -87%;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: #EEB6BB;
+    transform: skew(-30deg, 0);
+    top: 0;
+    mix-blend-mode: multiply;
+    z-index: 0;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0;
+    color: #fff;
+    background-color: #CA7C83;
+    padding-top: 3rem;
+    position: relative;
+    height: 44vw;
+    /* max-height: 57rem; */
+    min-height: 54rem;
+}
+
+.about::after{
+    content: "";
+    position: absolute;
+    left: 60%;
+    height: 100%;
+    width: 150%;
+    display: block;
+    background-color: rgba(158, 0, 93, 0.15);
+    mix-blend-mode: multiply;
+    transform: skew(-30deg, 0);
+    top: 0;
+    z-index: 0;
+}
+
+.about-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-title h3{
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.4rem;
+}
+
+.about-title span{
+    font-size: 0.875rem;
+}
+
+
+.about-inner{
+    background-image: url(https://sun-asterisk.com/wp-content/uploads/2020/02/recruit_bg1-1.jpg);
+    width: 100%;
+    position: absolute;
+    min-height: 350px;
+    margin: 8rem auto;
+    background-position: top 30% center;
+    background-size: cover;
+    height: 30vw;
+    display: grid;
+    z-index: 1;
+}
+
+.about-content{
+    display: flex;
+}
+
+.about-content a{
+    color: #fff;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.about-content a h4{
+    font-size: 1.2rem;
+}
+
+.about-content a h5{
+    font-size: 1rem;
+}
+
+.content-left, .content-center, .content-right{
+    background-color: rgba(0,0,0,0.60);
+    transition: 0.3s;
+    width: 33.33333%;
+    text-align: center;
+    display: grid;
+    align-content: center;
+}
+
+.content-left:hover{
+    background-color: rgba(0,0,0,0  );
+}
+.content-center:hover{
+    background-color: rgba(0,0,0,0  );
+}
+.content-right:hover{
+    background-color: rgba(0,0,0,0  );
+}
+
+.btn-about{
+    position: absolute;
+    bottom: 3rem;
+    z-index: 1;
+    background-color: #bd5861;
+}
+
+.more-info{
+    padding-top: 3rem;
+    line-height: 0;
+    padding-bottom: 3rem;
+}
+
+.more-info h6{
+    font-size: 0.9rem;
+    font-weight: 400;
+    max-width: 700px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 3.75rem;
+    margin-bottom: 3rem;
+}
+
+
+.entry{
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.entry-title{
+    font-size: 1.7rem;
+    border-bottom: 2px solid #bd5861;
+    color: #682e2e;
+    letter-spacing: 5px;
+    margin-bottom: 3rem;
+}
+
+.list-entry{
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.entry-img{
+    width: 70px;
+}
+
+.entry-position{
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.entry-position h5{
+    font-size: 1.2rem;
+}
+
+.entry-position a{
+    background-color: #682e2e;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.8rem 1rem;    
+    width: fit-content;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+	.pic-up{
+        max-height: 30rem;
+    }
+
+    .recruit-content {
+        margin-top: 8rem;
+    }
+
+    .content-left, .content-center, .content-right{
+        width: 100%;
+        height: 33.3333%;
+    }
+
+    .about-content{
+        flex-direction: column;
+    }
+
+    .entry-img {
+        width: 35%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .list-entry {
+        flex-direction: column;
+    }
+    .entry-position h5{
+        font-size: 1.6rem;
+    }
+    .entry-position a{
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    .entry-position{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+	.pic-up{
+        max-height: 20rem;
+        margin-top: 4.5rem;
+    }
+
+    .recruit-content {
+        margin-top: 4rem;
+        margin-bottom: 0;
+    }
+
+    .recruit a {
+        margin-bottom: 0px;
+    }
+
+    .recruit p{
+        font-size: 4.5rem;
+    }
+
+    .recruit a img{
+        width: 30%;
+        margin-bottom: 1rem;
+    }
+}
