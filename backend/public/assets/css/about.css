@@ -1,0 +1,145 @@
+.sliders{
+    margin-top: 2.375rem;
+}
+
+.history{
+    /* background-color: #FFD7D7; */
+    padding-top: 5rem;
+}
+
+.box-content{
+    background-color: #FAE5E2;
+}
+
+.title {
+    margin-left: 10rem;
+}
+
+.title h1{
+    letter-spacing: 5px;
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 0;
+    margin-bottom: 4rem;
+    text-shadow: 1px 0px white;
+    margin-top: 1rem;
+}
+
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1120px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+}
+
+.content > p{
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 5rem;
+}
+
+.list-img{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.list-picture img { 
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    transition: all .15s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.list-picture{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.list-picture span{
+    background-color: rgba(0, 0, 0, .75);
+    border-bottom: 2px solid #A56C6C;
+    color: #ffd7d7;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.content h5{
+    border-bottom: 2px solid #CA7C83;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.more-content{
+    font-weight: 300;
+}
+
+
+.about-more-title h4{
+    position: relative;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.about-more-title h4::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #A56C6C;
+    top: 1rem;
+    left: -1rem;
+    border-radius: 25px;
+}
+
+.about-more-content p{
+    height: fit-content;
+    margin-left: 1rem;
+    border-left: 2px solid #ffd7d7;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: 300;
+    font-size: 0.875rem;
+    color: #fff;
+}
+
+.about-more-content{
+    background-color: #CA7C83;
+}
+
+.about-more-content ol{
+    font-weight: 300;
+    font-size: 0.875rem;
+    color: #fff;
+    height: fit-content;
+    margin-left: 1rem;
+    border-left: 2px solid #ffd7d7;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    list-style: disc;
+}
+
+@media screen and (max-width: 990px) {
+	.title {
+        margin-left: 3rem;
+    }
+
+    .title h1{
+        font-size: 3rem;
+    }
+}
