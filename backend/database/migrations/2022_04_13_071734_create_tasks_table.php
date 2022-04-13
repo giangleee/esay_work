@@ -17,11 +17,11 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('name', 100);
             $table->longText('description');
-            $table->float('process', 5, 2);
+            $table->unsignedDecimal('process', 5, 2);
             $table->date('end');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('project_id');
-            $table->smallInteger('tag');
+            $table->unsignedSmallInteger('tag');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');

@@ -17,10 +17,10 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('name', 100);
             $table->longText('description');
-            $table->float('process', 5, 2);
-            $table->integer('budget');
+            $table->unsignedDecimal('process', 5, 2);
+            $table->unsignedInteger('budget');
             $table->date('end');
-            $table->smallInteger('status');
+            $table->unsignedSmallInteger('status');
             $table->unsignedBigInteger('customer_id');
             $table->timestamps();
             $table->softDeletes();
