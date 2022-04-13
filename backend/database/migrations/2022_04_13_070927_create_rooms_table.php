@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInternsTable extends Migration
+class CreateRoomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateInternsTable extends Migration
      */
     public function up()
     {
-        Schema::create('interns', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
-            $table->unsignedBigInteger('profile_id');
+            $table->string('name', 100);
+            $table->text('user_attendance_id');
+            $table->unsignedBigInteger('room_leader');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->foreign('room_leader')->references('id')->on('users');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateInternsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interns');
+        Schema::dropIfExists('rooms');
     }
 }
