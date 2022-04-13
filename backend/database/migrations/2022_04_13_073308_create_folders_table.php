@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInternsTable extends Migration
+class CreateFoldersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateInternsTable extends Migration
      */
     public function up()
     {
-        Schema::create('interns', function (Blueprint $table) {
+        Schema::create('folders', function (Blueprint $table) {
             $table->id();
-            $table->longText('description');
-            $table->unsignedBigInteger('profile_id');
+            $table->string('name', 100);
             $table->timestamps();
-            $table->softDeletes();
-            $table->foreign('profile_id')->references('id')->on('profiles');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateInternsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interns');
+        Schema::dropIfExists('folders');
     }
 }
