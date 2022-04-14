@@ -25,13 +25,10 @@ $ yarn generate
 ```bash
 $ cd backend
 
-$ cp .evn.example .evn
+$ cp .env.example .env
 
 # install dependencies
 $ composer install
-
-
-
 
 # build for production and launch server
 $ php artisan migrate --seed
