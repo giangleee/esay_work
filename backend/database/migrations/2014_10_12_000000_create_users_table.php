@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->tinyInteger('profile_id');
-            $table->tinyInteger('role_id');
-            $table->tinyInteger('room_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedbigInteger('role_id');
+            $table->unsignedbigInteger('room_id');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

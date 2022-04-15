@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('title', 255);
             $table->longText('content');
-            $table->tinyInteger('react');
+            $table->unsignedTinyInteger('react');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
