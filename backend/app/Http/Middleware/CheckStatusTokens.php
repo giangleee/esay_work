@@ -16,6 +16,7 @@ class CheckStatusTokens
      */
     public function handle(Request $request, Closure $next)
     {
+        dd($request, $next);
         return $next($request);
     }
 }
