@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             $table->date('birthday');
             $table->string('phone', 20);
             $table->string('avatar', 255);
-            $table->string('github', 255);
+            $table->string('github', 255)->unique();
             $table->string('facebook', 255);
             $table->timestamps();
             $table->softDeletes();

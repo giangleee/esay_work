@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoldersTable extends Migration
+class AddForeignKeyToTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 100)->unique();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign('tasks_tag_id_foreign');
+        });
     }
 }
