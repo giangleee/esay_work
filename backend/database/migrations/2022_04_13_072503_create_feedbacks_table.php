@@ -18,7 +18,7 @@ class CreateFeedbacksTable extends Migration
             $table->longText('description');
             $table->unsignedBigInteger('task_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedTinyInteger('rate');
+            $table->unsignedTinyInteger('rate')->comment('0-5');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('task_id')->references('id')->on('tasks');

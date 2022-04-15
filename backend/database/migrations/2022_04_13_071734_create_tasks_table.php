@@ -21,7 +21,7 @@ class CreateTasksTable extends Migration
             $table->date('end');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('project_id');
-            $table->unsignedSmallInteger('tag');
+            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');

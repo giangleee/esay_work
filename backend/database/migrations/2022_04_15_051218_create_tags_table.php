@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMailTemplatesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateMailTemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('mail_templates', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->unique();
-            $table->text('subject');
-            $table->longText('body');
+            $table->string('description', 100)->unique();
+            $table->text('background_color');
+            $table->text('color');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreateMailTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mail_templates');
+        Schema::dropIfExists('tags');
     }
 }

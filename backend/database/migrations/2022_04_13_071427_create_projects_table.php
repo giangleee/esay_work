@@ -15,12 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
+            $table->string('name', 100)->unique();
             $table->longText('description');
             $table->unsignedDecimal('process', 5, 2);
             $table->unsignedInteger('budget');
             $table->date('end');
-            $table->unsignedSmallInteger('status');
+            $table->unsignedSmallInteger('status')->comment('0: not finish, 1: process, 2: done');
             $table->unsignedBigInteger('customer_id');
             $table->timestamps();
             $table->softDeletes();

@@ -23,11 +23,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('profile_id')->references('id')->on('profiles');
-            $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('room_id')->references('id')->on('rooms');
-
         });
     }
 
