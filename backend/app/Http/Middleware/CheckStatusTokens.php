@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckStatusTokens
 {
@@ -16,7 +17,8 @@ class CheckStatusTokens
      */
     public function handle(Request $request, Closure $next)
     {
-        dd($request, $next);
+        $user = Auth::attempt($request);
+        dd($user);
         return $next($request);
     }
 }
