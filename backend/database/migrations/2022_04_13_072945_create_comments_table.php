@@ -21,8 +21,6 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('new_id')->references('id')->on('news');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

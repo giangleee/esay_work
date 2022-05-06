@@ -20,8 +20,6 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('file_type_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('folder_id')->references('id')->on('folders');
-            $table->foreign('file_type_id')->references('id')->on('file_types');
         });
     }
 

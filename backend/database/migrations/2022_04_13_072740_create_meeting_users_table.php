@@ -19,8 +19,6 @@ class CreateMeetingUsersTable extends Migration
             $table->unsignedBigInteger('meeting_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('meeting_id')->references('id')->on('meetings');
         });
     }
 

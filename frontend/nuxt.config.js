@@ -40,6 +40,7 @@ export default {
     '@/plugins/element-ui',
     { src: '~/plugins/vuelidate' },
     { src: '~/plugins/bootstrap' },
+    '~/plugins/handle-response.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,7 +56,28 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+
+  auth: {
+    strategies: {
+      'laravelJWT': {
+        provider: 'laravel/jwt',
+        url: 'http://localhost:8000',
+        token: {
+          property: 'access_token',
+          maxAge: 60 * 60
+        },
+        refreshToken: {
+          maxAge: 20160 * 60
+        },
+      },
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

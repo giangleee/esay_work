@@ -22,13 +22,13 @@
                 </div>
               </div>
             </div>
-            <div v-if="$v.user.email.$anyError">
-              <div v-show="!$v.user.email.required" class="text-danger">
-                Please enter a email
-              </div>
-              <div v-show="!$v.user.email.email" class="text-danger">
-                Please enter right type of email
-              </div>
+          </div>
+          <div v-if="$v.user.email.$anyError">
+            <div v-show="!$v.user.email.required" class="text-danger">
+              Please enter a email
+            </div>
+            <div v-show="!$v.user.email.email" class="text-danger">
+              Please enter right type of email
             </div>
           </div>
           <div class="d-flex mb-3 flex-direction-column">
@@ -45,11 +45,14 @@
                 </div>
               </div>
             </div>
-            <div v-if="$v.user.password.$anyError">
-              <div v-show="!$v.user.password.required" class="text-danger">
-                Please enter a password
-              </div>
+          </div>
+          <div v-if="$v.user.password.$anyError">
+            <div v-show="!$v.user.password.required" class="text-danger">
+              Please enter a password
             </div>
+          </div>
+          <div v-show="errors" class="text-danger">
+            {{ errors }}
           </div>
           <div class="row justify-content-center">
             <!-- /.col -->
@@ -73,8 +76,10 @@
 import { required, email } from 'vuelidate/lib/validators'
 
 export default {
+  auth: 'guest',
   data() {
     return {
+      errors: '',
       user: {
         email: '',
         password: '',
@@ -93,12 +98,30 @@ export default {
     },
   },
   methods: {
-    submit() {
+    async submit() {
       this.$v.$touch()
-      
-      if(!this.$v.user.$invalid) {
-        console.log(this.user)
+      if (!this.$v.user.$invalid) {
+        await this.$auth
+          .loginWith('laravelJWT', {
+            data: this.user,
+          })
+          .then((response) => {
+            this.notifycation()
+          })
+          .catch((e) => {
+            const errorResponse = this.$handleResponse(e).errors
+            if (errorResponse.unauthenticate) {
+              this.errors = errorResponse.unauthenticate
+            }
+          })
       }
+    },
+    notifycation() {
+      this.$notify.success({
+        title: 'Success',
+        message: 'Login success',
+        showClose: false,
+      })
     },
   },
 }
