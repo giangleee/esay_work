@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->unsignedbigInteger('role_id');
             $table->unsignedbigInteger('room_id');
             $table->rememberToken();
+            $table->tinyInteger('status')->default(1)->comment('0: inactive, 1: active');
             $table->timestamps();
             $table->softDeletes();
         });

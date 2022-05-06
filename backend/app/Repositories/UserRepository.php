@@ -3,17 +3,17 @@ namespace App\Repositories;
 
 use App\Repositories\BaseRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Models\User;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface
 {
-    //lấy model tương ứng
     public function getModel()
     {
-        // return \App\Models\Product::class;
+        return User::class;
     }
 
-    public function getProduct()
-    {
-        // return $this->model->select('product_name')->take(5)->get();
+    public function createUser($data)
+    {   
+        return $this->model->create($data);
     }
 }

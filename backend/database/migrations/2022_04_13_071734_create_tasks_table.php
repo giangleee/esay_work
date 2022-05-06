@@ -24,8 +24,6 @@ class CreateTasksTable extends Migration
             $table->unsignedBigInteger('tag_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 

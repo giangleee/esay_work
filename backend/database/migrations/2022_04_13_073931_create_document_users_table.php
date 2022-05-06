@@ -19,8 +19,6 @@ class CreateDocumentUsersTable extends Migration
             $table->unsignedBigInteger('document_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('document_id')->references('id')->on('documents');
         });
     }
 

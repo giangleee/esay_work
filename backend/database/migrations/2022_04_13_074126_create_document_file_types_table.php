@@ -19,8 +19,6 @@ class CreateDocumentFileTypesTable extends Migration
             $table->unsignedBigInteger('file_type_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('document_id')->references('id')->on('documents');
-            $table->foreign('file_type_id')->references('id')->on('file_types');
         });
     }
 

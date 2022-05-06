@@ -21,8 +21,6 @@ class CreateFeedbacksTable extends Migration
             $table->unsignedTinyInteger('rate')->comment('0-5');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('task_id')->references('id')->on('tasks');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

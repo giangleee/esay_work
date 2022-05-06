@@ -16,6 +16,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css', 
+        integrity:'sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==', 
+        crossorigin: 'anonymous', 
+        referrerpolicy: 'no-referrer'}
     ],
     script: [
       {
@@ -36,7 +40,7 @@ export default {
     '@/plugins/element-ui',
     { src: '~/plugins/vuelidate' },
     { src: '~/plugins/bootstrap' },
-    { src: '~/plugins/font-awsome' },
+    '~/plugins/handle-response.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,7 +56,28 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
+
+  auth: {
+    strategies: {
+      'laravelJWT': {
+        provider: 'laravel/jwt',
+        url: 'http://localhost:8000',
+        token: {
+          property: 'access_token',
+          maxAge: 60 * 60
+        },
+        refreshToken: {
+          maxAge: 20160 * 60
+        },
+      },
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

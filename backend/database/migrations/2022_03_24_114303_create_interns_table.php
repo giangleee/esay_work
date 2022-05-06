@@ -19,7 +19,6 @@ class CreateInternsTable extends Migration
             $table->unsignedBigInteger('profile_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('profile_id')->references('id')->on('profiles');
         });
     }
 

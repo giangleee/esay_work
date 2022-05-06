@@ -20,7 +20,6 @@ class CreateRoomsTable extends Migration
             $table->unsignedBigInteger('room_leader');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('room_leader')->references('id')->on('users');
         });
     }
 
