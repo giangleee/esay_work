@@ -9,26 +9,7 @@
         <p class="login-box-msg">Register a new membership</p>
 
         <form @submit.prevent="submit">
-          <div class="mb-3">
-            <div class="input-group">
-              <input
-                v-model.trim="$v.user.name.$model"
-                type="text"
-                class="form-control"
-                placeholder="Full name"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-user"></span>
-                </div>
-              </div>
-            </div>
-            <div v-if="$v.user.name.$anyError && !message">
-              <div v-show="!$v.user.name.required" class="text-danger">
-                Please enter a name
-              </div>
-            </div>
-          </div>
+          <UserName id="step1" ref="userNameTarget"  />
           <div class="mb-3">
             <div class="input-group">
               <input
@@ -108,7 +89,7 @@
               class="w-100"
             >
               <el-option
-                v-for="item in constValue"
+                v-for="item in constants"
                 :key="item.value"
                 :label="item.text"
                 :value="item.value"
@@ -159,11 +140,15 @@
 
 <script>
 import { required, email, sameAs, minLength } from 'vuelidate/lib/validators'
-import { constValue } from '~/constants/constants'
+import { constants } from '~/constants/constants.js'
+import UserName from '~/components/user_register_login/UserName'
 
 export default {
   name: 'RegisterPage',
   auth: false,
+  components: {
+    UserName,
+  },
   data: () => ({
     email_error: '',
     message: '',
@@ -199,7 +184,7 @@ export default {
         label: 'Option5',
       },
     ],
-    constValue: '',
+    constants: '',
     isLoading: false,
   }),
   validations: {
@@ -260,8 +245,8 @@ export default {
       })
     },
     setData() {
-      this.constValue = constValue
-    }
+      this.constants = constants
+    },
   },
 }
 </script>
