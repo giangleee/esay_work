@@ -6,9 +6,9 @@ const initialState = () => ({
     password: '',
     confirm_password: '',
     accept_terms: '',
-    role_id: '',
-    room_id: '',
-    profile_id: 1
+    roleId: '',
+    roomId: '',
+    profileId: 1
 })
 
 export default deepFreeze(initialState)

@@ -33,11 +33,11 @@ export default {
   computed: {
     value: {
       get() {
-        return this.$store.state.user_register_login.name
+        console.log(this.$store.state['user'])
+        return this.$store.state.user.name
       },
       set(value) {
-        console.log(this.$store)
-        this.$store.dispatch('user/SET_USER_NAME', value)
+        this.$store.commit('user/SET_USER_NAME', value)
         this.$v.name.$touch()
       },
     },
