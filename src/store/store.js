@@ -1,13 +1,15 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 import emailModule from './email'
+import userModule from './user'
 
 Vue.use(Vuex)
 
-const store = {
+export const store = new Vuex.Store({
     modules: {
         'email': emailModule,
+        'user' : userModule
     }
-}
+})
 
-export default new Vuex.Store(store)
+export default store

@@ -9,74 +9,36 @@
         <p class="login-box-msg">Register a new membership</p>
 
         <form @submit.prevent="submit">
+          <!-- <UserName id="step1" ref="userNameTarget" /> -->
           <div class="mb-3">
-            <div class="input-group">
-              <input
-                v-model.trim="$v.user.name.$model"
-                type="text"
-                class="form-control"
-                placeholder="Full name"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-user"></span>
-                </div>
-              </div>
-            </div>
-            <div v-if="$v.user.name.$anyError && !message">
-              <div v-show="!$v.user.name.required" class="text-danger">
-                Please enter a name
-              </div>
-            </div>
+            <UserInput
+              id="step1"
+              ref="userInputTarget"
+              :value="user.name"
+              icon-class="fas fa-envelope"
+              placeholder="Enter name"
+              type="name"
+            />
           </div>
           <div class="mb-3">
-            <div class="input-group">
-              <input
-                v-model.trim="$v.user.email.$model"
-                type="email"
-                class="form-control"
-                placeholder="Email"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
-                </div>
-              </div>
-            </div>
-            <div v-if="$v.user.email.$anyError && !message">
-              <div v-show="!$v.user.email.required" class="text-danger">
-                Please enter a email
-              </div>
-              <div v-show="!$v.user.email.email" class="text-danger">
-                Please enter right type of email
-              </div>
-            </div>
-            <div v-show="email_error && !message" class="text-danger">
-              {{ email_error }}
-            </div>
+            <UserInput
+              id="step1"
+              ref="userInputTarget"
+              :value="user.email"
+              icon-class="fas fa-envelope"
+              placeholder="Enter email"
+              type="email"
+            />
           </div>
           <div class="mb-3">
-            <div class="input-group">
-              <input
-                v-model.trim="$v.user.password.$model"
-                type="password"
-                class="form-control"
-                placeholder="Password"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
-                </div>
-              </div>
-            </div>
-            <div v-if="$v.user.password.$anyError && !message">
-              <div v-show="!$v.user.password.required" class="text-danger">
-                Please enter a password
-              </div>
-              <div v-show="!$v.user.password.minLength" class="text-danger">
-                Min length of this field is 8
-              </div>
-            </div>
+            <UserInput
+              id="step1"
+              ref="userInputTarget"
+              :value="user.password"
+              icon-class="fas fa-lock"
+              placeholder="Enter password"
+              type="password"
+            />
           </div>
           <div class="mb-3">
             <div class="input-group">
@@ -102,24 +64,16 @@
             </div>
           </div>
           <div class="mb-3">
-            <el-select
-              v-model.trim="$v.user.role_id.$model"
-              placeholder="Select"
-              class="w-100"
-            >
-              <el-option
-                v-for="item in constValue"
-                :key="item.value"
-                :label="item.text"
-                :value="item.value"
-              >
-              </el-option>
-            </el-select>
+            <UserOption 
+            placeholder="Select"
+            type="roleId"
+            :constants="constants"
+            :value="user.roleId"/>
           </div>
 
           <div class="mb-3">
             <el-select
-              v-model.trim="$v.user.room_id.$model"
+              v-model="$v.user.room_id.$model"
               placeholder="Select"
               class="w-100"
             >
@@ -132,7 +86,6 @@
               </el-option>
             </el-select>
           </div>
-
           <div class="row">
             <div class="col-12">
               <div class="icheck-primary text-center">
@@ -159,24 +112,20 @@
 
 <script>
 import { required, email, sameAs, minLength } from 'vuelidate/lib/validators'
-import { constValue } from '~/constants/constants'
+import { constants } from '~/constants/constants'
+import UserInput from '~/components/user/UserInput'
+import UserOption from '~/components/user/UserOption'
 
 export default {
   name: 'RegisterPage',
   auth: false,
+  components: {
+    UserInput,
+    UserOption,
+  },
   data: () => ({
     email_error: '',
     message: '',
-    user: {
-      name: '',
-      email: '',
-      password: '',
-      confirm_password: '',
-      accept_terms: '',
-      role_id: '',
-      room_id: '',
-      profile_id: 1,
-    },
     options: [
       {
         value: '1',
@@ -199,7 +148,7 @@ export default {
         label: 'Option5',
       },
     ],
-    constValue: '',
+    constants: '',
     isLoading: false,
   }),
   validations: {
@@ -226,7 +175,13 @@ export default {
       },
     },
   },
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
   mounted() {
+    console.log(typeof constants)
     this.setData()
   },
   methods: {
@@ -260,11 +215,10 @@ export default {
       })
     },
     setData() {
-      this.constValue = constValue
-    }
+      this.constants = constants
+    },
   },
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

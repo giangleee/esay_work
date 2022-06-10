@@ -1,4 +1,4 @@
-const constants = [
+export const constants = [
     {
         text: 'Option 1',
         value: 1
@@ -20,5 +20,3 @@ const constants = [
         value: 5
     }
 ]
-
-export default constants
